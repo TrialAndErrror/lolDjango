@@ -1,0 +1,7 @@
+asgiref
+Django
+django-extensions
+sqlparse
+ipython
+ipython-sql
+jupyter
