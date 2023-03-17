@@ -1,4 +1,5 @@
 from django.db import models
+from . import Participant
 
 
 class PlayerChallenges(models.Model):
@@ -110,4 +111,4 @@ class PlayerChallenges(models.Model):
     skillshots_hit = models.CharField(max_length=100)
     buffs_stolen = models.CharField(max_length=100)
 
-    participant = models.ForeignKey("data.Participant", on_delete=models.CASCADE)
+    participant = models.ForeignKey(Participant, on_delete=models.CASCADE)

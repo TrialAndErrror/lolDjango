@@ -1,15 +1,10 @@
 from django.db import models
 
 
-class MetaData(models.Model):
+class Match(models.Model):
     data_version = models.CharField(max_length=100)
     match_id = models.CharField(max_length=100)
-    participants = models.CharField(max_length=100)
 
-    match = models.ForeignKey("data.Match", on_delete=models.CASCADE)
-
-
-class Match(models.Model):
     game_id = models.CharField(max_length=100)
     game_version = models.CharField(max_length=100)
     map_id = models.IntegerField()

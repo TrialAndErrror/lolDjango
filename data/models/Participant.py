@@ -1,4 +1,5 @@
 from django.db import models
+from . import Match
 
 
 class Participant(models.Model):
@@ -10,7 +11,6 @@ class Participant(models.Model):
     summoner_id = models.CharField(max_length=100)
     summoner_level = models.IntegerField()
     profile_icon = models.IntegerField()
-    eligible_for_progression = models.BooleanField()
     riot_id_name = models.CharField(max_length=100)
     riot_id_tagline = models.CharField(max_length=100)
 
@@ -115,20 +115,20 @@ class Participant(models.Model):
     objectives_stolen_assists = models.IntegerField()
 
     # Ping Stats
-    all_in_pings = models.IntegerField()
-    assist_me_pings = models.IntegerField()
-    enemy_missing_pings = models.IntegerField()
-    danger_pings = models.IntegerField()
-    basic_pings = models.IntegerField()
-    enemy_vision_pings = models.IntegerField()
-    command_pings = models.IntegerField()
-    get_back_pings = models.IntegerField()
-    need_vision_pings = models.IntegerField()
-    hold_pings = models.IntegerField()
-    push_pings = models.IntegerField()
-    bait_pings = models.IntegerField()
-    on_my_way_pings = models.IntegerField()
-    vision_cleared_pings = models.IntegerField()
+    all_in_pings = models.IntegerField(null=True, blank=True)
+    assist_me_pings = models.IntegerField(null=True, blank=True)
+    enemy_missing_pings = models.IntegerField(null=True, blank=True)
+    danger_pings = models.IntegerField(null=True, blank=True)
+    basic_pings = models.IntegerField(null=True, blank=True)
+    enemy_vision_pings = models.IntegerField(null=True, blank=True)
+    command_pings = models.IntegerField(null=True, blank=True)
+    get_back_pings = models.IntegerField(null=True, blank=True)
+    need_vision_pings = models.IntegerField(null=True, blank=True)
+    hold_pings = models.IntegerField(null=True, blank=True)
+    push_pings = models.IntegerField(null=True, blank=True)
+    bait_pings = models.IntegerField(null=True, blank=True)
+    on_my_way_pings = models.IntegerField(null=True, blank=True)
+    vision_cleared_pings = models.IntegerField(null=True, blank=True)
 
     champion_transform = models.IntegerField()
 
@@ -167,4 +167,4 @@ class Participant(models.Model):
     game_ended_in_early_surrender = models.BooleanField()
     team_early_surrendered = models.BooleanField()
 
-    match = models.ForeignKey('data.Match', on_delete=models.CASCADE)
+    match = models.ForeignKey(Match, on_delete=models.CASCADE)
